@@ -54,7 +54,6 @@ return (
         transition={{ duration: 0.8, delay: 0.2 }}
         className="w-full max-w-2xl"
       >
-        {/* Letter paper */}
         <div className="bg-amber-50/95 backdrop-blur rounded-lg shadow-2xl p-8 md:p-12 min-h-96 border border-amber-100/50 relative overflow-hidden">
           <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-yellow-200/20 to-transparent rounded-bl-3xl" />
 
@@ -74,7 +73,6 @@ return (
           <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-yellow-200 to-transparent" />
         </div>
 
-        {/* Continue button */}
         {displayedText.length === fullText.length && !showQuestion && (
           <motion.div
             initial={{ opacity: 0, y: 10 }}
@@ -93,9 +91,8 @@ return (
           </motion.div>
         )}
       </motion.div>
-    </motion.div> {/* ✅ THIS WAS MISSING */}
+    </motion.div>
 
-    {/* Question Popup */}
     {showQuestion && (
       <QuestionPopup onYes={onNext} />
     )}
