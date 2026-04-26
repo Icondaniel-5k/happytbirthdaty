@@ -39,15 +39,15 @@ export function Scene3_Letter({ onNext }: Scene3Props) {
     }
   }, [displayedText, fullText]);
 
-  return (
-    <>
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        transition={{ duration: 0.8 }}
-        className="fixed inset-0 flex items-center justify-center z-10 p-4"
-      >
+return (
+  <>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.8 }}
+      className="fixed inset-0 flex items-center justify-center z-10 p-4"
+    >
       <motion.div
         initial={{ opacity: 0, scale: 0.95, y: 20 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -56,10 +56,8 @@ export function Scene3_Letter({ onNext }: Scene3Props) {
       >
         {/* Letter paper */}
         <div className="bg-amber-50/95 backdrop-blur rounded-lg shadow-2xl p-8 md:p-12 min-h-96 border border-amber-100/50 relative overflow-hidden">
-          {/* Decorative corner accent */}
           <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-yellow-200/20 to-transparent rounded-bl-3xl" />
 
-          {/* Typewriter text */}
           <div className="relative z-10 font-serif text-gray-800 leading-8 whitespace-pre-wrap text-lg">
             {displayedText}
             {displayedText.length < fullText.length && (
@@ -73,11 +71,10 @@ export function Scene3_Letter({ onNext }: Scene3Props) {
             )}
           </div>
 
-          {/* Bottom decoration */}
           <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-yellow-200 to-transparent" />
         </div>
 
-        {/* Continue button (appears when text is done) */}
+        {/* Continue button */}
         {displayedText.length === fullText.length && !showQuestion && (
           <motion.div
             initial={{ opacity: 0, y: 10 }}
@@ -96,11 +93,11 @@ export function Scene3_Letter({ onNext }: Scene3Props) {
           </motion.div>
         )}
       </motion.div>
+    </motion.div> {/* ✅ THIS WAS MISSING */}
 
-      {/* Question Popup */}
-      {showQuestion && (
-        <QuestionPopup onYes={onNext} />
-      )}
-    </>
-  );
-}
+    {/* Question Popup */}
+    {showQuestion && (
+      <QuestionPopup onYes={onNext} />
+    )}
+  </>
+);
