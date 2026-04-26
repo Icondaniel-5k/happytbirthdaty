@@ -9,11 +9,11 @@ interface Scene3Props {
 }
 
 const letterContent = [
-  "My Dearest Love,",
+  "My Dearest Princess...AND SUPERHERO💕",
   "",
   "Today, I wanted to pause the world for a moment and tell you something that gets lost in the everyday rush—how deeply I cherish you.",
   "",
-  "I see you working tirelessly in nursing, carrying the weight of caring for others with such grace. I see you diving deep into code and systems, solving problems that would make most people's heads spin. And somehow, through all of it, you still make time to be present with me.",
+  "I see you working tirelessly in nursing, carrying the weight of caring for others with such grace. I see you sacrificing your sleep and health for people you don't even know. And somehow, through all of it, you still make time to be present with me.",
   "",
   "You inspire me every single day. Your strength, your kindness, your brilliant mind—they light up my world.",
   "",
