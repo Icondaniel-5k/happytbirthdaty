@@ -39,62 +39,63 @@ export function Scene3_Letter({ onNext }: Scene3Props) {
     }
   }, [displayedText, fullText]);
 
-return (
-  <>
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.8 }}
-      className="fixed inset-0 flex items-center justify-center z-10 p-4"
-    >
+  return (
+    <>
       <motion.div
-        initial={{ opacity: 0, scale: 0.95, y: 20 }}
-        animate={{ opacity: 1, scale: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.2 }}
-        className="w-full max-w-2xl"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.8 }}
+        className="fixed inset-0 flex items-center justify-center z-10 p-4"
       >
-        <div className="bg-amber-50/95 backdrop-blur rounded-lg shadow-2xl p-8 md:p-12 min-h-96 border border-amber-100/50 relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-yellow-200/20 to-transparent rounded-bl-3xl" />
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95, y: 20 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="w-full max-w-2xl"
+        >
+          <div className="bg-amber-50/95 backdrop-blur rounded-lg shadow-2xl p-8 md:p-12 min-h-96 border border-amber-100/50 relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-yellow-200/20 to-transparent rounded-bl-3xl" />
 
-          <div className="relative z-10 font-serif text-gray-800 leading-8 whitespace-pre-wrap text-lg">
-            {displayedText}
-            {displayedText.length < fullText.length && (
-              <motion.span
-                animate={{ opacity: [1, 0] }}
-                transition={{ duration: 0.7, repeat: Infinity }}
-                className="ml-1 text-yellow-600"
-              >
-                |
-              </motion.span>
-            )}
+            <div className="relative z-10 font-serif text-gray-800 leading-8 whitespace-pre-wrap text-lg">
+              {displayedText}
+              {displayedText.length < fullText.length && (
+                <motion.span
+                  animate={{ opacity: [1, 0] }}
+                  transition={{ duration: 0.7, repeat: Infinity }}
+                  className="ml-1 text-yellow-600"
+                >
+                  |
+                </motion.span>
+              )}
+            </div>
+
+            <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-yellow-200 to-transparent" />
           </div>
 
-          <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-yellow-200 to-transparent" />
-        </div>
-
-        {displayedText.length === fullText.length && !showQuestion && (
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="mt-8 flex justify-center"
-          >
-            <motion.button
-              onClick={() => setShowQuestion(true)}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="px-8 py-3 bg-pink-300/40 backdrop-blur border border-pink-300/60 rounded-full text-pink-900 font-light hover:bg-pink-300/60 transition-all"
+          {displayedText.length === fullText.length && !showQuestion && (
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="mt-8 flex justify-center"
             >
-              Next
-            </motion.button>
-          </motion.div>
-        )}
+              <motion.button
+                onClick={() => setShowQuestion(true)}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="px-8 py-3 bg-pink-300/40 backdrop-blur border border-pink-300/60 rounded-full text-pink-900 font-light hover:bg-pink-300/60 transition-all"
+              >
+                Next
+              </motion.button>
+            </motion.div>
+          )}
+        </motion.div>
       </motion.div>
-    </motion.div>
 
-    {showQuestion && (
-      <QuestionPopup onYes={onNext} />
-    )}
-  </>
-);
+      {showQuestion && (
+        <QuestionPopup onYes={onNext} />
+      )}
+    </>
+  );
+}
